@@ -1,0 +1,14 @@
+
+.ui.card>.image, .ui.cards>.card> {
+
+    .image {
+        width: 100%;
+    }
+
+    .card-wrapper {
+
+        h3:last-child {
+            text-align: center;
+        }
+    }
+}

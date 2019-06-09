@@ -1,0 +1,26 @@
+.user-selection-page {
+    height: 100%;
+    width: 95%;
+    margin: 0 auto;
+
+    span.words {
+        color: blue;
+        text-align: center;
+    }
+
+    .title {
+        text-align: center;
+        padding: 2rem 0 0 0;
+        font-family: Arial;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-selection-page {
+
+        .title {
+            padding: 2rem 0 0 0;
+            font-family: Arial;
+        }
+    }
+}
