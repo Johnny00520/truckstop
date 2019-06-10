@@ -1,0 +1,89 @@
+.action_info-container {
+  background-color: #94716b; }
+  .action_info-container .ui.container {
+    height: 100%; }
+    .action_info-container .ui.container .table-wrapper {
+      padding-top: 5%;
+      background-color: bisque; }
+      .action_info-container .ui.container .table-wrapper .info-container {
+        width: 90%;
+        margin: 0 auto;
+        height: inherit; }
+        .action_info-container .ui.container .table-wrapper .info-container .detail-title {
+          text-align: center;
+          font-weight: 500;
+          line-height: 1.1;
+          font-size: 36px;
+          font-family: 'Zilla Slab Highlight', sans-serif; }
+        .action_info-container .ui.container .table-wrapper .info-container .info-header {
+          text-align: center;
+          margin: 0 auto; }
+          .action_info-container .ui.container .table-wrapper .info-container .info-header img {
+            margin-bottom: 2rem;
+            margin: 0 auto; }
+          .action_info-container .ui.container .table-wrapper .info-container .info-header h2 {
+            text-align: center;
+            color: #FFF;
+            font-weight: 500;
+            line-height: 1.1;
+            font-size: 36px;
+            font-family: 'Zilla Slab Highlight', sans-serif; }
+        .action_info-container .ui.container .table-wrapper .info-container .img-wrapper {
+          display: flex;
+          justify-content: center;
+          margin-top: 2rem;
+          height: inherit; }
+          .action_info-container .ui.container .table-wrapper .info-container .img-wrapper img {
+            width: unset; }
+      .action_info-container .ui.container .table-wrapper .block_info {
+        display: flex; }
+        .action_info-container .ui.container .table-wrapper .block_info .inner-block-left {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          max-width: 50%; }
+          .action_info-container .ui.container .table-wrapper .block_info .inner-block-left span.block-info {
+            display: flex;
+            padding: 1rem 1rem; }
+            .action_info-container .ui.container .table-wrapper .block_info .inner-block-left span.block-info .label {
+              width: 10rem;
+              display: block;
+              float: left; }
+            .action_info-container .ui.container .table-wrapper .block_info .inner-block-left span.block-info span.block-data {
+              margin-left: 3rem;
+              font-weight: 500;
+              line-height: 1.1;
+              font-size: 18px;
+              font-family: 'Zilla Slab Highlight', sans-serif; }
+        .action_info-container .ui.container .table-wrapper .block_info .inner-block-right {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          max-width: 50%; }
+          .action_info-container .ui.container .table-wrapper .block_info .inner-block-right span.block-info {
+            display: flex;
+            padding: 1rem 1rem; }
+            .action_info-container .ui.container .table-wrapper .block_info .inner-block-right span.block-info .label {
+              width: 10rem;
+              display: block;
+              float: left; }
+            .action_info-container .ui.container .table-wrapper .block_info .inner-block-right span.block-info span.block-data {
+              margin-left: 3rem;
+              font-weight: 500;
+              line-height: 1.1;
+              font-size: 18px;
+              font-family: 'Zilla Slab Highlight', sans-serif; }
+
+@media (max-width: 400px) {
+  .action_info-container .ui.container .table-wrapper {
+    width: 95%;
+    margin: 0 auto;
+    background-color: bisque; }
+    .action_info-container .ui.container .table-wrapper .block_info {
+      flex-direction: column; }
+      .action_info-container .ui.container .table-wrapper .block_info .inner-block-left {
+        width: 100%;
+        max-width: 100%; }
+      .action_info-container .ui.container .table-wrapper .block_info .inner-block-right {
+        width: 100%;
+        max-width: 100%; } }

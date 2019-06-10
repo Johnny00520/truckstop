@@ -1,22 +1,76 @@
 import {
     SET_CHARS,
-    CHAR_FETCHED
+    CHAR_FETCHED,
+    FETCH_CHARS_FAILURE,
+    FETCH_CHARS_BEGIN,
+    DATA_FETCHED
 } from '../../actions/movies';
 
 // import _ from 'lodash';
-
-export default function( state = {}, action = {}) {
+const initialState = {
+    items: [],
+    isLoading: false,
+    error: null,
+    info: {}
+}
+export default function( state = initialState, action = {}) {
     switch(action.type) {
-        case SET_CHARS:
-            // const characters = Object.entries(action.characters).map((name, url) => {
-            //     return { name, url }
-            // })
+        case DATA_FETCHED:
+            const urlIndex = state.items
+            console.log(urlIndex)
+            debugger
+            return {
 
-            return { ...state, ...[action.characters]}
-            // return _.unionBy(state, action.characters, 'url')
+            }
 
         case CHAR_FETCHED:
-            return { ...state, [action.data]: action.data }
+
+            const index = state.items.findIndex(item => item.name === action.data.name)
+            // console.log(index)
+            // debugger
+            if(index > -1) {
+                return {
+                    ...state,
+                    info: action.data,
+                    // isLoading: false,
+                    // error: null
+                }
+            } else {
+                return {
+                    ...state,
+                    // items: action.characters,
+                    info: action.data,
+                    // items: action.data,
+                    // isLoading: false,
+                    // error: null
+                }
+            }
+            
+        case FETCH_CHARS_BEGIN:
+            return {
+                ...state,
+                isLoading: true,
+                error: null
+            }
+
+        case SET_CHARS:
+            return {
+                ...state,
+                items: action.characters,
+                isLoading: false,
+                error: null
+            }
+
+        case FETCH_CHARS_FAILURE:
+            return {
+                ...state,
+                items: [],
+                isLoading: false,
+                error: action.error
+            }
+        
+        // return { ...state, ...[action.characters]}
+        // return _.unionBy(state, action.characters, 'url')
 
         default:
             return state

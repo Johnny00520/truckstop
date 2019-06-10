@@ -5,10 +5,12 @@
         width: 100%;
     }
 
-    .card-wrapper {
-
-        h3:last-child {
-            text-align: center;
-        }
+    .content {
+        text-align: center;
     }
+
+    .extra .ui.buttons{
+        width: 100%;
+    }
+    
 }

@@ -1,0 +1,156 @@
+.action_info-container {
+    // height: 100%;
+    background-color: #94716b;
+
+    .ui.container {
+        height: 100%;
+
+        .table-wrapper {
+            // height: 100%;
+            padding-top: 5%;
+            background-color: bisque;
+
+            .info-container {
+                width: 90%;
+                margin: 0 auto;
+                height: inherit;
+
+                .detail-title {
+                    text-align: center;
+                    font-weight: 500;
+                    line-height: 1.1;
+                    font-size: 36px;
+                    font-family: 'Zilla Slab Highlight', sans-serif;
+                }
+    
+                .info-header {
+                    text-align: center;
+                    margin: 0 auto;
+    
+                    img {
+                        margin-bottom: 2rem;
+                        margin: 0 auto;
+                    }
+    
+                    h2 {
+                        text-align: center;
+                        // width: 40%;
+                        // margin-top: 15px;
+    
+                        // background-color: black;
+                        color: #FFF;
+                        font-weight: 500;
+                        line-height: 1.1;
+                        font-size: 36px;
+                        font-family: 'Zilla Slab Highlight', sans-serif;
+                    }
+                }
+    
+                .img-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 2rem;
+                    height: inherit;
+                    img {
+                        width: unset;
+                    }
+                }
+
+            }
+
+            .block_info {
+                display: flex;
+                
+                .inner-block-left {
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    max-width: 50%;
+
+                    span.block-info {
+                        display: flex;
+                        // justify-content: space-evenly;
+                        padding: 1rem 1rem;
+
+                        .label {
+                            // max-width: 10rem;
+                            width: 10rem;
+                            display: block;
+                            float: left;
+
+                        }
+                        span.block-data {
+                            margin-left: 3rem;
+                            font-weight: 500;
+                            line-height: 1.1;
+                            font-size: 18px;
+                            font-family: 'Zilla Slab Highlight', sans-serif;
+                        }
+                    }
+
+                }
+    
+                .inner-block-right {
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    max-width: 50%;
+
+                    span.block-info {
+                        display: flex;
+                        padding: 1rem 1rem;
+
+                        .label {
+                            // max-width: 10rem;
+                            width: 10rem;
+                            display: block;
+                            float: left;
+                        }
+                        span.block-data {
+                            margin-left: 3rem;
+                            font-weight: 500;
+                            line-height: 1.1;
+                            font-size: 18px;
+                            font-family: 'Zilla Slab Highlight', sans-serif;
+                        }
+                    }
+                }
+            }
+
+            .films-block {
+                
+            }
+
+        }
+    }
+}
+
+
+@media(max-width: 400px) {
+    .action_info-container {
+
+        .ui.container {
+            
+            .table-wrapper {
+                width: 95%;
+                margin: 0 auto;
+                background-color: bisque;
+
+                .block_info {
+                    flex-direction: column;
+
+                    .inner-block-left {
+                        width: 100%;
+                        max-width: 100%;
+                    }
+
+                    .inner-block-right {
+                        width: 100%;
+                        max-width: 100%;
+                    }
+                }
+
+            }
+        }
+    }
+}

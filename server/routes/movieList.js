@@ -1,8 +1,27 @@
 // Read JSON file synchronously, but can be only updated outside
 const { characters } = require('../FakeData/characters.json');
-
 const fetch = require('node-fetch');
 
+// const validation = (data) => {
+//     let errors = {};
+
+//     if(data.name === "") errors.name = "Name cannot be empty";
+
+//     const isValid = Object.keys(errors).length === 0;
+//     return { errors, isValid };
+// }
+
+function handleResponse(response) {
+    // console.log("response: ", response)
+    if(response.ok) {
+        return response.json();
+    } else {
+        let error = new Error(response.statusText);
+        // debugger
+        error.response = response;
+        throw error;
+    }
+}
 
 module.exports = (app) => {
     // app.use((req, res, next) => {
@@ -11,13 +30,28 @@ module.exports = (app) => {
     //     next();
     // });
 
+    app.get('/api/data/:url', (req, res) => {
+        const { url } = req.params;
+        fetch(url)
+        .then(handleResponse)
+        .then(data => {
+            console.log(data)
+            return res.json(data)
+        })
+        // .then(data => res.json( data ))
+        .catch(error => {
+            if(error.response.status === 404) {
+                console.error("404: Not found")
+                return res.status(404).json( error )
+            }
+            res.statusMessage = "Something went wrong, please contact customer service.";
+            return res.status(500).end();
+        });
+    });
     
     app.get('/api/characters/:name', (req, res) => {
-
         const { name } = req.params;
         console.log(name)
-        // res.json({ express: 'Hello From Express' })
-
         let i = 0;
         let url;
         for(i; i < characters.length; i++) {
@@ -28,21 +62,27 @@ module.exports = (app) => {
         }
 
         fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data)
-            res.json({ data });
-        })
-        .catch(err => {
-            res.redirect('/error');
+        .then(handleResponse)
+        .then(data => res.json( data ))
+        .catch(error => {
+            if(error.response.status === 404) {
+                console.error("404: Not found")
+                return res.status(404).json( error )
+            }
+            res.statusMessage = "Something went wrong, please contact customer service.";
+            return res.status(500).end();
         });
+        
 
     });
 
     app.get('/api/characters', (req, res) => {
         if(!characters) {
+            console.error("Error on fetching JSON file")
+            res.statusMessage = "Something went wrong, please contact customer service.";
+            return res.status(500).end();
         } else {
-            res.json(characters )
+            return res.status(200).json(characters)
         }
 
         // const fileContents = fs.readFileSync(__dirname+'/characters.json')

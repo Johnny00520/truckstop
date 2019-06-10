@@ -2,21 +2,54 @@
 export const FETCH_CHAR = "fetch_character";
 export const SET_CHARS = "set_characters";
 export const CHAR_FETCHED = "char_fetched";
+export const ERROR_MESSAGE = "error_message";
+export const FETCH_CHARS_BEGIN = "fetch_begin";
+export const FETCH_CHARS_FAILURE = "fetch_faulure";
+export const DATA_FETCHED = "data_fetched";
 
 function handleResponse(response) {
+    // debugger
     if(response.ok) {
-        // debugger
-        return response.json()
-        // return response
+        return response.json();
     } else {
         let error = new Error(response.statusText);
+        // debugger
         error.response = response;
         throw error;
     }
 }
 
-export function charFetched(data) {
+export const fetchBegin = () => ({
+    type: FETCH_CHARS_BEGIN
+});
+
+export function fetchFailure(error) {
+    return {
+        type: FETCH_CHARS_FAILURE,
+        error
+    }
+}
+
+export function urlFetched(data) {
+    // debugger
+    return {
+        type: DATA_FETCHED,
+        data
+    }
+}
+
+export function fetchMoreUrl(url) {
     debugger
+    return dispatch => {
+        return fetch(`/api/data/${url}`)
+            .then(handleResponse)
+            .then(data => dispatch(urlFetched(data)))
+            .catch(error => dispatch(fetchFailure(error)))
+    }
+}
+
+export function charFetched(data) {
+    // debugger
     return {
         type: CHAR_FETCHED,
         data
@@ -24,22 +57,19 @@ export function charFetched(data) {
 }
 
 export function fetchChar(name) {
-    debugger
     return dispatch => {
-        fetch(`/api/characters/${name}`)
-        .then(handleResponse)
-        // .then(res => {
-        //     debugger
-        //     return res.json()
-        // })
-        // .then(res => res.json())
-        // .then(res => JSON.stringify(res))
-        // .then(data => console.log(data))
-        .then(data => {
-            debugger
-            return dispatch(charFetched(data))
-        })
-        
+        // dispatch(fetchBegin());
+        return fetch(`/api/characters/${name}`)
+            .then(handleResponse)
+            .then(data => dispatch(charFetched(data)))
+            // .then(data => {
+            //     debugger
+            // })
+            .catch(error => dispatch(fetchFailure(error)))
+            // .catch(error => {
+            //     debugger
+
+            // })
     }
 }
 
@@ -52,29 +82,10 @@ export function setCharacters(characters) {
 
 export function fetchChars() {
     return dispatch => {
-        fetch('/api/characters')
-        .then(handleResponse)
-        .then(data => dispatch(setCharacters(data)))
+        dispatch(fetchBegin());
+        return fetch('/api/characters')
+            .then(handleResponse)
+            .then(data => dispatch(setCharacters(data)))
+            .catch(error => dispatch(fetchFailure(error)))
     }
 }
-
-
-// export function fetchChars() {
-//     return dispatch => {
-//         fetch('/api/characters')
-//         // .then(res => res.json())
-//         // .then(handleResponse)
-//         .then(res => {
-//             // debugger
-//             // return res.text()
-//             return res
-//             // return JSON.stringify(res)
-//             // return JSON.parse(res)
-//         })
-//         .then(data => {
-//             // console.log(JSON.parse(data))
-//             debugger
-//             return dispatch(setMovies(data.characters))
-//         })
-//     }
-// }
