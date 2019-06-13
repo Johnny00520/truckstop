@@ -15,6 +15,7 @@ import Speciy from './dataInfo/speciy/Speciy';
 import Vehicle from './dataInfo/vehicle/Vehicle';
 import Starship from './dataInfo/starship/Starship';
 import Homeworld from './dataInfo/homeworld/Homeworld';
+import Planet from './dataInfo/planet/Planet';
 
 import { 
   Router, 
@@ -43,8 +44,6 @@ class App extends Component {
 
     
     render() {
-
-
         return (
             <div className="App">
                 <Router history={history}>
@@ -140,11 +139,22 @@ class App extends Component {
                                 />
                             }
                         />
+
+                        <Route
+                            path="/planet/:name"
+                            render={(props) => 
+                                <Planet
+                                    {...props}
+                                    characters={this.props.characters}
+                                    fetchChar={this.props.fetchChar}
+                                    fetchMoreUrl={this.props.fetchMoreUrl}
+                                    url={this.props.url}
+                                />
+                            }
+                        />
                         
                         <Route
                             path="/data/:name"
-                            // path="/data/:url"
-                            // path="/data/:name/:url"
                             render={(props) => 
                                 <DataInfoPage 
                                     {...props}

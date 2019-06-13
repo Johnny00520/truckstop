@@ -1,0 +1,62 @@
+.planet-page {
+  background-color: #6D7993; }
+  .planet-page .planet-page-container .info-container {
+    width: 80%;
+    background-color: #96858F;
+    text-align: center;
+    margin: 0 auto; }
+    .planet-page .planet-page-container .info-container .planet-name {
+      text-align: center;
+      display: inline; }
+      .planet-page .planet-page-container .info-container .planet-name h1 {
+        color: #DA7B93;
+        padding-top: 5%;
+        font-weight: 500;
+        line-height: 1.1;
+        font-size: 80px;
+        font-family: 'Zilla Slab Highlight', sans-serif;
+        color: #EDF5E1; }
+    .planet-page .planet-page-container .info-container .time-info {
+      color: #376E6F;
+      width: 75%;
+      text-align: left;
+      margin: 0 auto; }
+    .planet-page .planet-page-container .info-container .basic-info {
+      margin: 0 auto;
+      width: 90%;
+      color: #FFF;
+      text-align: left;
+      font-weight: 500;
+      line-height: 1.1;
+      font-size: 16px;
+      font-family: 'Zilla Slab Highlight', sans-serif; }
+    .planet-page .planet-page-container .info-container h1 {
+      color: #BaB2B5; }
+    .planet-page .planet-page-container .info-container .btn-format {
+      padding: 5% 0; }
+    .planet-page .planet-page-container .info-container .data-info {
+      text-align: center;
+      margin: 1rem 0 2rem 0; }
+      .planet-page .planet-page-container .info-container .data-info .caragory-title {
+        color: #7FDBFF;
+        font-weight: 500;
+        line-height: 1.1;
+        font-size: 30px;
+        font-family: 'Zilla Slab Highlight', sans-serif; }
+    .planet-page .planet-page-container .info-container .data-info-hidden {
+      display: none; }
+
+@media (max-width: 400px) {
+  .planet-page .planet-page-container .info-container .planet-name h1 {
+    font-size: 50px; }
+  .planet-page .planet-page-container .info-container .time-info {
+    width: 95%;
+    margin: 0 auto;
+    font-size: 12px; }
+  .planet-page .planet-page-container .info-container .basic-info {
+    margin: 0 auto;
+    width: 90%;
+    color: #FFF;
+    font-family: 'Zilla Slab Highlight', sans-serif; }
+    .planet-page .planet-page-container .info-container .basic-info h3 {
+      font-size: 16px; } }

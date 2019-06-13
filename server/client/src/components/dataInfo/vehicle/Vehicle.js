@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import './Vehicle.css';
 
 export default function Vehicle(props) {
-    const { info } = props.characters;
+    const { info, isLoading } = props.characters;
     const { name } = props.match.params;
 
     let createdUTCstring = new Date(info ? info.created : "").toUTCString();
@@ -17,86 +17,95 @@ export default function Vehicle(props) {
     let editedDateTime = new Date(editedUTCstring).toDateString().split(" ");
     let newEditedDateTime = timeConverter(editedDateTime).join(" ");
 
+    const loading = (
+        <div className="loading-show">
+            <div className="ui active inverted dimmer">
+                <div className="ui text loader">Preparing Files...</div>
+            </div>
+        </div>
+    )
 
-    return (
-        <div className="vehical-page">
-            <div className="vehical-page-container">
-                <div className="info-container">
+    const vehicleRender = (
+        <div className="vehical-page-container">
+            <div className="info-container">
 
-                    <div className="vehicle-name">
-                        <strong><h1>{info.name}</h1></strong>
+                <div className="vehicle-name">
+                    <strong><h1>{info.name}</h1></strong>
+                </div>
+
+                <div className="ui divider"></div>
+
+                <div className="time-info">
+                    <strong><h4><i>Created Time: {newCreateDateTime}</i></h4></strong>
+                    <strong><h4><i>Edited Time: {newEditedDateTime}</i></h4></strong>
+                </div>
+
+                <div className="ui divider"></div>
+
+                <div className="basic-info">
+                    <strong><h3>Model: {info.model}</h3></strong>
+                    <strong><h3>Manufacturer: {info.manufacturer}</h3></strong>
+                    <strong><h3>Cost in Credits: {info.cost_in_credits}</h3></strong>
+                    <strong><h3>Length: {info.length}</h3></strong>
+                    <strong><h3>Crew: {info.crew}</h3></strong>
+                    <strong><h3>Passengers: {info.passengers}</h3></strong>
+                    <strong><h3>Cargo Capacity: {info.cargo_capacity}</h3></strong>
+                    <strong><h3>Consumables: {info.consumables}</h3></strong>
+                    <strong><h3>Max Atmosphering Speed: {info.max_atmosphering_speed}</h3></strong>
+                    <strong><h3>Vehicle class: {info.vehicle_class}</h3></strong>
+                </div>
+
+                <div className="ui divider"></div>
+
+                <div className="ui container">
+                    <h1>Films </h1>
+                    <div className="ui three column stackable cards">
+                        {info.films && info.films.length ? info.films.map((film, idx) => 
+                            <Films 
+                                key={film}
+                                film={film}
+                                name={name}
+                                fetchMoreUrl={props.fetchMoreUrl}
+                                idx={idx}
+                            />
+                        ): "" }
                     </div>
 
                     <div className="ui divider"></div>
 
-                    <div className="time-info">
-                        <strong><h4><i>Created Time: {newCreateDateTime}</i></h4></strong>
-                        <strong><h4><i>Edited Time: {newEditedDateTime}</i></h4></strong>
-                    </div>
-
-                    <div className="ui divider"></div>
-
-                    <div className="basic-info">
-                        <strong><h3>Model: {info.model}</h3></strong>
-                        <strong><h3>Manufacturer: {info.manufacturer}</h3></strong>
-                        <strong><h3>Cost in Credits: {info.cost_in_credits}</h3></strong>
-                        <strong><h3>Length: {info.length}</h3></strong>
-                        <strong><h3>Crew: {info.crew}</h3></strong>
-                        <strong><h3>Passengers: {info.passengers}</h3></strong>
-                        <strong><h3>Cargo Capacity: {info.cargo_capacity}</h3></strong>
-                        <strong><h3>Consumables: {info.consumables}</h3></strong>
-                        <strong><h3>Max Atmosphering Speed: {info.max_atmosphering_speed}</h3></strong>
-                        <strong><h3>Vehicle class: {info.vehicle_class}</h3></strong>
-                    </div>
-
-                    <div className="ui divider"></div>
-
-                    <div className="ui container">
-                        <h1>Films </h1>
-                        <div className="ui three column stackable cards">
-                            {info.films && info.films.length ? info.films.map((film, idx) => 
-                                <Films 
-                                    key={film}
-                                    film={film}
-                                    name={name}
-                                    fetchMoreUrl={props.fetchMoreUrl}
-                                    idx={idx}
-                                />
-                            ): "" }
-                        </div>
-
-                        <div className="ui divider"></div>
-
-                        <h1>Pilots</h1>
-                        <div className="ui three column stackable cards">
-                            {info.pilots && info.pilots.length ? info.pilots.map((pilot, idx) => 
-                                <People 
-                                    key={pilot}
-                                    person={pilot}
-                                    name={name}
-                                    fetchMoreUrl={props.fetchMoreUrl}
-                                    idx={idx}
-                                />
-                            ): "" }
-                        </div>
-
-                    </div>
-
-                    <div className="btn-format">
-                        <div className="extra content">
-                            <div className="ui one buttons ">
-                                <Link 
-                                    to="/"
-                                    className="ui huge inverted grey button"
-                                >Home</Link>
-                            </div>
-                        </div>
+                    <h1>Pilots</h1>
+                    <div className="ui three column stackable cards">
+                        {info.pilots && info.pilots.length ? info.pilots.map((pilot, idx) => 
+                            <People 
+                                key={pilot}
+                                person={pilot}
+                                name={name}
+                                fetchMoreUrl={props.fetchMoreUrl}
+                                idx={idx}
+                            />
+                        ): "" }
                     </div>
 
                 </div>
+
+                <div className="btn-format">
+                    <div className="extra content">
+                        <div className="ui one buttons ">
+                            <Link 
+                                to="/"
+                                className="ui huge inverted grey button"
+                            >Home</Link>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
+    )
+
+    return (
+        <div className="vehical-page">
+            { isLoading ? loading : vehicleRender}
+        </div>
     )
 }
 

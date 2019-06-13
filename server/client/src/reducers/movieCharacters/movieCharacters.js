@@ -19,7 +19,8 @@ export default function( state = initialState, action = {}) {
             return {
                 ...state,
                 info: action.data,
-                isLoading: false
+                isLoading: false,
+                error: null
             }
 
         case CHAR_FETCHED:

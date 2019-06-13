@@ -30,3 +30,11 @@
         color: #BaB2B5; }
       .starship-page .starship-page-container .info-container .btn-format {
         padding: 2rem 0; }
+
+@media (max-width: 400px) {
+  .starship-page .starship-page-container .info-container .starship-name h1 {
+    font-size: 50px; }
+  .starship-page .starship-page-container .info-container .time-info {
+    width: 100%; }
+  .starship-page .starship-page-container .info-container .basic-info {
+    font-size: 12px; } }

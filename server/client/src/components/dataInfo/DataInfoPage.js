@@ -7,7 +7,7 @@ import './DataInfoPage.css';
 
 export default function DataInfo(props) {
 
-    const { info } = props.characters;
+    const { info, isLoading } = props.characters;
     // debugger
     let createdUTCstring = new Date(info.created).toUTCString();
     let createdDateTime = new Date(createdUTCstring).toDateString().split(" ");
@@ -17,11 +17,16 @@ export default function DataInfo(props) {
     let editedDateTime = new Date(editedUTCstring).toDateString().split(" ");
     let newEditedDateTime = timeConverter(editedDateTime).join(" ");
 
-    return (
+    const loading = (
+        <div className="loading-show">
+            <div className="ui active inverted dimmer">
+                <div className="ui text loader">Preparing Files...</div>
+            </div>
+        </div>
+    )
 
-        <div className="DataInfo-page">
-            
-            <div className="ui inverted vertical masthead center aligned segment">
+    const dataInfoRender = (
+        <div className="ui inverted vertical masthead center aligned segment">
                 <div className="DataInfo-container">
                     <h1>{info.title}</h1>
                     <h3>{info.director}</h3>
@@ -43,7 +48,6 @@ export default function DataInfo(props) {
 
                 <div className="ui divider"></div>
 
-
                 <div className="extra content">
                     <div className="ui one buttons ">
                         <Link 
@@ -56,8 +60,6 @@ export default function DataInfo(props) {
                         >Go back</Link>
                     </div>
                 </div>
-            </div>
-
             <div className="ui container">
                 <div className="ui four stackable cards">
                     
@@ -70,14 +72,14 @@ export default function DataInfo(props) {
                             fetchMoreUrl={props.fetchMoreUrl}
                             fetchChar={props.fetchChar}
                     />) : "" }
-
-                    
                 </div>
             </div>
+        </div>
+    )
 
-            <div className="ui divider"></div>
-
-
+    return (
+        <div className="DataInfo-page">
+            { isLoading ? loading : dataInfoRender }
         </div>
     )
 }

@@ -14,7 +14,6 @@
                 text-align: center;
                 display: inline;
                 
-    
                 h1 {
                     padding-top: 5%;
                     font-weight: 500;
@@ -46,6 +45,32 @@
                 width: 60%;
                 margin: 0 auto;
                 color: #05386B;
+            }
+
+        }
+    }
+}
+
+@media(max-width: 400px) {
+    .speciy-page {
+
+        .speciy-page-container {
+    
+            .info-container {
+
+                .speciy-name {
+
+                    h1 {
+                        font-size: 50px;
+                    }
+                }
+                .time-info {
+                    width: 100%;
+                }
+
+                .basic-info {
+                    font-size: 12px;
+                }
             }
 
         }

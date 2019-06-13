@@ -47,7 +47,32 @@
             }
         }
 
+    }
+}
+
+@media(max-width: 400px) {
+    .starship-page {
+
+        .starship-page-container {
+    
+            .info-container {
+
+                .starship-name {
+
+                    h1 {
+                        font-size: 50px;
+                    }
+                }
+                .time-info {
+                    width: 100%;
+                }
+
+                .basic-info {
+                    font-size: 12px;
+                }
+            }
+
+        }
 
     }
-
 }

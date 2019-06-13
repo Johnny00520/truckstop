@@ -31,16 +31,18 @@
             font-size: 36px;
             font-family: 'Zilla Slab Highlight', sans-serif;
         }
-    }
 
-    .data-container {
-        display: inline;
-
-        span {
-            display: flex;
-            padding: 3px 0;
+        .data-container {
+            display: inline;
+    
+            span {
+                display: flex;
+                padding: 3px 10px;
+            }
         }
     }
+
+    
 
     .opening_crawl {
         width: 80%;

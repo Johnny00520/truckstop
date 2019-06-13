@@ -19,11 +19,11 @@
       line-height: 1.1;
       font-size: 36px;
       font-family: 'Zilla Slab Highlight', sans-serif; }
-  .film-page .data-container {
-    display: inline; }
-    .film-page .data-container span {
-      display: flex;
-      padding: 3px 0; }
+    .film-page .filmInfo-container .data-container {
+      display: inline; }
+      .film-page .filmInfo-container .data-container span {
+        display: flex;
+        padding: 3px 10px; }
   .film-page .opening_crawl {
     width: 80%;
     margin: 5% auto; }

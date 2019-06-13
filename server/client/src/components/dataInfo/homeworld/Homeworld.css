@@ -6,11 +6,12 @@
       width: 80%;
       text-align: center;
       margin: 0 auto; }
-      .homeworld-page .homeworld-page-container .info-container .homeworl-name {
+      .homeworld-page .homeworld-page-container .info-container .homeworld-name {
         color: #DA7B93;
         text-align: center;
-        display: inline; }
-        .homeworld-page .homeworld-page-container .info-container .homeworl-name h1 {
+        display: inline;
+        font-size: 80px; }
+        .homeworld-page .homeworld-page-container .info-container .homeworld-name h1 {
           padding: 3rem 0 1rem 0;
           font-size: 32px;
           font-family: 'Zilla Slab Highlight', sans-serif; }
@@ -30,3 +31,11 @@
         color: #BaB2B5; }
       .homeworld-page .homeworld-page-container .info-container .btn-format {
         padding: 5% 0; }
+
+@media (max-width: 400px) {
+  .homeworld-page .speciy-page-container .info-container .homeworld-name h1 {
+    font-size: 50px; }
+  .homeworld-page .speciy-page-container .info-container .time-info {
+    width: 100%; }
+  .homeworld-page .speciy-page-container .info-container .basic-info {
+    font-size: 12px; } }

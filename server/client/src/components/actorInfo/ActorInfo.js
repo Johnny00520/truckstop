@@ -33,8 +33,6 @@ class ActorInfo extends Component {
 
             created: this.props.info ? this.props.info.created : "",
             edited: this.props.info ? this.props.info.edited : "",
-            // films: this.props.info ? this.props.info.films : [],
-
             colorIndex: 0,
             directionIndex: 0
         }
@@ -78,11 +76,18 @@ class ActorInfo extends Component {
         })
     }
 
+    loading = (
+        <div className="loading-show">
+            <div className="ui active inverted dimmer">
+                <div className="ui text loader">Preparing Files...</div>
+            </div>
+        </div>
+    )
+
     render() {
         const { name, films, species, starships, vehicles, homeworld } = this.props.info;
 
         return (
-
             <div className="table-wrapper">
                 <div className="info-container">
                     <div className="ui raised seqment">
@@ -166,8 +171,6 @@ class ActorInfo extends Component {
                         </div>
                         </div>
 
-                        
-
                         <div className={films && films.length ?
                             "catagories" : "catagories-hidden" }>
                             <div className="ui divider"></div>
@@ -185,7 +188,6 @@ class ActorInfo extends Component {
                                     />) : "" }
                             </div>
                         </div>
-
 
                         <div className={species && species.length ? 
                             "catagories" : "catagories-hidden" }>
@@ -227,8 +229,6 @@ class ActorInfo extends Component {
                             </div>
                         </div>
 
-                        
-                            
                         <div className={vehicles && vehicles.length ? 
                             "catagories" : "catagories-hidden"}>
                             <div className="ui divider"></div>
@@ -276,10 +276,7 @@ class ActorInfo extends Component {
                         </div>
                     </div>
                 </div>
-
             </div>
-                
-
         )
     }
 }
@@ -290,14 +287,10 @@ ActorInfo.propType = {
 }
 
 const mapStateToProps = (state, props) => {
-    // debugger
-    // console.log("props in actorInfo: ", props)
     if(props.params) {
-        // console.log(state.characters)
-        // debugger
         return {
             character: state.characters.items.find(item => item.name === props.params.name),
-            pathname: props.location.pathname
+            // pathname: props.location.pathname
         };
     }
 

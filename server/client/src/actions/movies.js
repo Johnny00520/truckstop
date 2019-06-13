@@ -41,6 +41,7 @@ export function urlFetched(data) {
 export function fetchMoreUrl(url) {
     // debugger
     return dispatch => {
+        dispatch(fetchBegin());
         fetch(`/api/data/${encodeURIComponent(url)}`)
             .then(handleResponse)
             .then(data => dispatch(urlFetched(data)))
