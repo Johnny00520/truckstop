@@ -36,7 +36,6 @@ module.exports = (app) => {
     // });
 
     app.get('/api/data/:url', (req, res) => {
-    // app.get('/api/data/:name/:url', (req, res) => {
         const { url } = req.params;
         
         fetch(url)
@@ -54,13 +53,12 @@ module.exports = (app) => {
     
     app.get('/api/characters/:name', (req, res) => {
         const { name } = req.params;
-        // console.log(name)
+
         let i = 0;
         let url;
         for(i; i < characters.length; i++) {
             if(name === characters[i].name) {
                 url = characters[i].url
-                // res.json(characters[i])
             }
         }
 
@@ -68,6 +66,7 @@ module.exports = (app) => {
         .then(handleResponse)
         .then(data => res.json( data ))
         .catch(error => {
+            console.log("error in backend: ", error)
             if(error.response.status === 404) {
                 console.error("404: Not found")
                 return res.status(404).json( error )

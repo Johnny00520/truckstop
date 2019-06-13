@@ -1,5 +1,9 @@
 .film-page {
   min-height: 100%; }
+  .film-page .ui.container h1 {
+    text-decoration: underline;
+    text-underline-position: under;
+    padding-bottom: 5px; }
   .film-page h5 {
     font-weight: 500;
     line-height: 1.1;
@@ -38,3 +42,7 @@
       font-weight: 300;
       color: #49c5b6;
       text-align: center; }
+
+@media (max-width: 400px) {
+  .film-page .filmInfo-container h1 {
+    font-size: 26px; } }

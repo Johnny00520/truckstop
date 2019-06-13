@@ -1,13 +1,12 @@
 import React from 'react';
-// import comming_soon from '../../../asset/coming-soon.jpg';
 import timeConverter from '../../timeConver/timeConver';
 import { Link } from 'react-router-dom';
 import Films from '../../actorInfo/films/Films';
 import People from '../../actorInfo/people/People';
-import Homeworld from '../../actorInfo/homeworld//Homeworld';
+import Homeworld from '../../actorInfo/homeworld/Homeworld';
+// import Homeworld from '../../dataInfo/homeworld/Homeworld';
 import './Speciy.css';
 
-// export default function Speciy({ speciy, idx, name, fetchChar, fetchMoreUrl }) {
 export default function Speciy(props) {
     // debugger
     const { info } = props.characters;
@@ -26,7 +25,6 @@ export default function Speciy(props) {
             <div className="speciy-page-container">
 
                 <div className="info-container">
-
                     <div className="speciy-name">
                         <strong><h1>{info.name}</h1></strong>
                     </div>
@@ -54,24 +52,19 @@ export default function Speciy(props) {
                     <div className="ui divider"></div>
 
                     <div className="btn-wrapper">
-                        <div className="ui two buttons ">
+                        <div className="ui one buttons ">
                             <Link 
                                 to="/"
-                                className="ui inverted secondary button"
-                                // onClick={() => props.fetchMoreUrl(speciy)}
+                                className="ui huge inverted secondary button"
                             >Home</Link>
-                            <Link
-                                to={`/actor/${name}`}
-                                className="ui inverted secondary button"
-                                // onClick={() => fetchChar(name)}
-                            >Go back
-                            </Link>
                         </div>
                     </div>
 
                     <div className="ui divider"></div>
-                        <Homeworld homeworld={info.homeworld}/>
-
+                        <Homeworld 
+                            homeworld={info.homeworld}
+                            fetchMoreUrl={props.fetchMoreUrl}
+                        />
                     <div className="ui divider"></div>
 
                     <div className="ui container">
@@ -103,28 +96,9 @@ export default function Speciy(props) {
                             ): "" }
                         </div>
                     </div>
-
-                    <div className="btn-format">
-                        <div className="extra content">
-                            <div className="ui one buttons ">
-                                <Link 
-                                    to="/"
-                                    className="ui inverted huge yellow button"
-                                >Home</Link>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
         </div>
-
     )
 }
-
-
-
-
-// homeworld: "https://swapi.co/api/planets/9/"
-// url: "https://swapi.co/api/spec

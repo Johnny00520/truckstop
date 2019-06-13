@@ -28,3 +28,7 @@
         font-family: 'Zilla Slab Highlight', sans-serif; }
       .vehical-page .vehical-page-container .info-container h1 {
         color: #C3073F; }
+
+@media (max-width: 400px) {
+  .vehical-page .vehical-page-container .info-container .time-info {
+    width: 100%; } }

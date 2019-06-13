@@ -81,18 +81,18 @@ export default function Starship(props) {
                                 />
                             ): "" }
                         </div>
-                    </div>
-
-                    <div className="btn-format">
-                        <div className="extra content">
-                            <div className="ui one buttons ">
-                                <Link 
-                                    to="/"
-                                    className="ui inverted violet button"
-                                >Home</Link>
+                        <div className="btn-format">
+                            <div className="extra content">
+                                <div className="ui one buttons ">
+                                    <Link 
+                                        to="/"
+                                        className="ui inverted huge violet button"
+                                    >Home</Link>
+                                </div>
                             </div>
                         </div>
                     </div>
+
 
                 </div>
 

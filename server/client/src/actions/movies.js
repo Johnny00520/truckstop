@@ -41,7 +41,6 @@ export function urlFetched(data) {
 export function fetchMoreUrl(url) {
     // debugger
     return dispatch => {
-        // fetch(`/api/data/${name}/${encodeURIComponent(url)}`)
         fetch(`/api/data/${encodeURIComponent(url)}`)
             .then(handleResponse)
             .then(data => dispatch(urlFetched(data)))
@@ -64,14 +63,7 @@ export function fetchChar(name) {
         fetch(`/api/characters/${name}`)
             .then(handleResponse)
             .then(data => dispatch(charFetched(data)))
-            // .then(data => {
-            //     debugger
-            // })
             .catch(error => dispatch(fetchFailure(error)))
-            // .catch(error => {
-            //     debugger
-
-            // })
     }
 }
 

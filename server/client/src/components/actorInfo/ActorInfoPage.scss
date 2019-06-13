@@ -1,3 +1,21 @@
+.error_msg_block {
+    text-align: center;
+    padding-top: 15%;
+
+    .error_msg_wrapper {
+        height: 100%;
+
+        flex-direction: column;
+        justify-content: center;
+        max-width: 50%;
+        margin: 0 auto;
+
+        .ui.negative.message {
+            text-align: center;
+        }
+    }
+}
+
 .action_info-container {
     // height: 100%;
     background-color: #94716b;
@@ -100,10 +118,10 @@
 
                     span.block-info {
                         display: flex;
-                        padding: 1rem 3rem;
+                        padding: 1rem 1rem;
 
                         .label {
-                            width: 10rem;
+                            width: 50%;
                             display: block;
                             float: left;
 
@@ -130,7 +148,8 @@
                         padding: 1rem 1rem;
 
                         .label {
-                            width: 10rem;
+
+                            width: 50%;
                             display: block;
                             float: left;
                         }
@@ -156,6 +175,22 @@
 
 
 @media(max-width: 400px) {
+    .error_msg_block {
+    
+        .error_msg_wrapper {
+            height: 100%;
+    
+            flex-direction: column;
+            justify-content: center;
+            max-width: 100%;
+
+    
+            .ui.negative.message {
+                text-align: center;
+            }
+        }
+    }
+
     .action_info-container {
 
         .ui.container {
@@ -165,17 +200,34 @@
                 margin: 0 auto;
                 background-color: bisque;
 
-                .block_info {
+                .block {
                     flex-direction: column;
 
                     .inner-block-left {
                         width: 100%;
                         max-width: 100%;
+
+                        span.block_info  {
+                            padding: unset;
+
+                            .label {
+                                width: 100%;
+                            }
+                        }
                     }
 
                     .inner-block-right {
                         width: 100%;
                         max-width: 100%;
+
+                        span.block_info  {
+                            padding: unset;
+
+                            .label {
+                                width: 100%;
+                                max-width: 50%;
+                            }
+                        }
                     }
                 }
 

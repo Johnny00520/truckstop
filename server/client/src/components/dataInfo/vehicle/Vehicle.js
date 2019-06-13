@@ -5,9 +5,7 @@ import People from '../../actorInfo/people/People';
 import { Link } from 'react-router-dom';
 import './Vehicle.css';
 
-// export default function Vehicle({ vehicle, name, idx, fetchChar, fetchMoreUrl}) {
 export default function Vehicle(props) {
-
     const { info } = props.characters;
     const { name } = props.match.params;
 
@@ -54,38 +52,44 @@ export default function Vehicle(props) {
                     <div className="ui divider"></div>
 
                     <div className="ui container">
-                        <h1>Films: </h1>
-                        {info.films && info.films.length ? info.films.map((film, idx) => 
-                            <Films 
-                                key={film}
-                                film={film}
-                                name={name}
-                                fetchMoreUrl={props.fetchMoreUrl}
-                                idx={idx}
-                            />
-                        ): "" }
+                        <h1>Films </h1>
+                        <div className="ui three column stackable cards">
+                            {info.films && info.films.length ? info.films.map((film, idx) => 
+                                <Films 
+                                    key={film}
+                                    film={film}
+                                    name={name}
+                                    fetchMoreUrl={props.fetchMoreUrl}
+                                    idx={idx}
+                                />
+                            ): "" }
+                        </div>
 
                         <div className="ui divider"></div>
 
-
                         <h1>Pilots</h1>
-                        {info.pilots && info.pilots.length ? info.pilots.map((pilot, idx) => 
-                            <People 
-                                person={pilot}
-                                name={name}
-                                fetchMoreUrl={props.fetchMoreUrl}
-                                idx={idx}
-                            />
-                        ): "" }
+                        <div className="ui three column stackable cards">
+                            {info.pilots && info.pilots.length ? info.pilots.map((pilot, idx) => 
+                                <People 
+                                    key={pilot}
+                                    person={pilot}
+                                    name={name}
+                                    fetchMoreUrl={props.fetchMoreUrl}
+                                    idx={idx}
+                                />
+                            ): "" }
+                        </div>
 
                     </div>
 
-                    <div className="extra content">
-                        <div className="ui two buttons ">
-                            <Link 
-                                to="/"
-                                className="ui basic button green"
-                            >Home</Link>
+                    <div className="btn-format">
+                        <div className="extra content">
+                            <div className="ui one buttons ">
+                                <Link 
+                                    to="/"
+                                    className="ui huge inverted grey button"
+                                >Home</Link>
+                            </div>
                         </div>
                     </div>
 

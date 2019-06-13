@@ -11,7 +11,6 @@ export default function Vehicles({ vehicle, name, fetchMoreUrl, idx}) {
             <div className="extra content">
                 <div className="ui one buttons ">
                     <Link 
-                        // to={`/data/${name}/${encodeURIComponent(film)}`}
                         to={`/vehicle/${name}`}
                         className="ui basic button green"
                         onClick={() => fetchMoreUrl(vehicle)}

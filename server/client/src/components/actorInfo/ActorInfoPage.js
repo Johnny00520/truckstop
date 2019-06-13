@@ -6,8 +6,7 @@ import './ActorInfoPage.css';
 
 const ActorInfoPage = (props) => {
     const { isLoading, error, info, items } = props.characters;
-    // debugger
-    // console.log("info: ", info)
+
     const loading = (
         <div className="loading-show">
             <div className="ui active inverted dimmer">
@@ -18,16 +17,21 @@ const ActorInfoPage = (props) => {
 
     if(error) {
         return (
-            <div className="error_msg_wrapper">
-                <div className="ui negative message">
-                    Error: {error.message}
-                </div>
-                <div className="ui one buttons ">
-                    <Link 
-                        // to={`/${props.pathname}`} 
-                        to="/" 
-                        className="ui basic button green"
-                    >Go back</Link>
+            <div className="error_msg_block">
+                <div className="error_msg_wrapper">
+                    <div className="ui negative message">
+                        <div className="header">
+                            We're sorry. The data is: {error.message} 
+                        </div>
+                        <p>Please double check your url address and try again</p>
+                    </div>
+
+                    <div className="ui one buttons ">
+                        <Link 
+                            to="/" 
+                            className="ui huge inverted teal button"
+                        >Home</Link>
+                    </div>
                 </div>
             </div>
         )

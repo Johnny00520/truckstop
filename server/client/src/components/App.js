@@ -193,11 +193,8 @@ App.propTypes = {
 
 const mapStateToProps = (state) => {
 //   debugger
-//   console.log("state: ", state.characters)
+//   console.log("state.characters.info: ", state.characters.info)
   return { 
-      // characters: state.characters.items,
-      // isLoading: state.characters.isLoading,
-      // error: state.characters.error,
       info: state.characters.info,
       characters: state.characters,
       url: state.characters.url

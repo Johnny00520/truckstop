@@ -60,7 +60,7 @@ class ActorInfo extends Component {
         let editedUTCstring = new Date(nextProps.info.edited).toUTCString();
         let editedDateTime = new Date(editedUTCstring).toDateString().split(" ");
         let newEditedDateTime = timeConverter(editedDateTime).join(" ");
-
+        // debugger
         this.setState({
             name: nextProps.info.name,
             birth_year: nextProps.info.birth_year,

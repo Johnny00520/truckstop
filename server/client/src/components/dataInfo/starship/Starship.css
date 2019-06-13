@@ -28,3 +28,5 @@
         font-family: 'Zilla Slab Highlight', sans-serif; }
       .starship-page .starship-page-container .info-container h1 {
         color: #BaB2B5; }
+      .starship-page .starship-page-container .info-container .btn-format {
+        padding: 2rem 0; }

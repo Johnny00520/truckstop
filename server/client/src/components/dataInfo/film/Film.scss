@@ -2,6 +2,15 @@
     // height: inherit;
     min-height: 100%;
 
+    .ui.container {
+
+        h1 {
+            text-decoration: underline;
+            text-underline-position: under;
+            padding-bottom: 5px;
+        }
+    }
+
     h5 {
         font-weight: 500;
         line-height: 1.1;
@@ -62,4 +71,17 @@
         }
     }
 
+}
+
+@media(max-width: 400px) {
+    .film-page {
+
+        .filmInfo-container {
+
+            h1 {
+
+                font-size: 26px;
+            }
+        }
+    }
 }

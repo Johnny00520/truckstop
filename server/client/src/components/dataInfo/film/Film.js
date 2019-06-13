@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import timeConverter from '../../timeConver/timeConver';
-
 import Species from '../../actorInfo/species/Species'
 import Character from '../character/Character';
 import Planet from '../planet/Planet';
 
-
+import People from '../../actorInfo/people/People';
 import Vehicles from '../../actorInfo/vehicles/Vehicles';
 import Starships from '../../actorInfo/starships/Starships';
 import './Film.css';
@@ -22,7 +21,7 @@ export default function Film(props) {
     let editedUTCstring = new Date(info.edited).toUTCString();
     let editedDateTime = new Date(editedUTCstring).toDateString().split(" ");
     let newEditedDateTime = timeConverter(editedDateTime).join(" ");
-
+    // debugger
     return (
         
         <div className="film-page">
@@ -86,7 +85,8 @@ export default function Film(props) {
                     <div className="ui four stackable cards">
                         {info.characters && info.characters.length > 0 ? 
                             info.characters.map((character, idx) => 
-                            <Character
+                            // <Character
+                            <People
                                 key={character}
                                 character={character} 
                                 fetchChar={props.fetchChar}

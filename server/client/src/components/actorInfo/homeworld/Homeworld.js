@@ -4,6 +4,7 @@ import comming_soon from '../../../asset/coming-soon.jpg';
 import './Homeworld.css';
 
 export default function Homeworld(props) {
+    // debugger
     return (
         <div className="ui centered card">
             <img src={props.img ? "#" : comming_soon} className="ui image" alt="name" />

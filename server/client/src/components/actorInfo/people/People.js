@@ -6,15 +6,14 @@ export default function People({ person, name, fetchMoreUrl, idx}) {
     return (
         <div className="ui card">
             <p>{idx + 1}</p>
-            {/* <img src={person ? comming_soon : ""} className="ui image" alt="name" /> */}
             <img src={comming_soon} className="ui image" alt="name" />
             <div className="extra content">
                 <div className="ui one buttons ">
                     <Link 
-                        to={`/person/${name}`}
+                        to={`/actor/${name}`}
                         className="ui basic button green"
                         onClick={() => fetchMoreUrl(person)}
-                    >Information</Link>
+                    >Person</Link>
                 </div>
             </div>
         </div>
