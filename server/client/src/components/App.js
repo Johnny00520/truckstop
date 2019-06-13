@@ -63,7 +63,6 @@ class App extends Component {
                                     characters={this.props.characters}
                                     fetchMoreUrl={this.props.fetchMoreUrl}
                                     info={this.props.info}
-                                    prevPath={this.props.prevPath}
                                 />
                             }
                         />
@@ -76,7 +75,6 @@ class App extends Component {
                                     characters={this.props.characters}
                                     fetchMoreUrl={this.props.fetchMoreUrl}
                                     info={this.props.info}
-                                    prevPath={this.props.prevPath}
                                 />
                             }
                         />
@@ -89,7 +87,6 @@ class App extends Component {
                                     characters={this.props.characters}
                                     fetchMoreUrl={this.props.fetchMoreUrl}
                                     info={this.props.info}
-                                    prevPath={this.state.prevPath}
                                 />
                             }
                         />
