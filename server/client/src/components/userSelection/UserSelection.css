@@ -1,5 +1,4 @@
 .user-selection-page {
-  height: 100%;
   width: 95%;
   margin: 0 auto; }
   .user-selection-page span.words {
@@ -7,8 +6,19 @@
     text-align: center; }
   .user-selection-page .title {
     text-align: center;
-    padding: 2rem 0 0 0;
-    font-family: Arial; }
+    padding: 3rem 0 1rem 0;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #49c5b6;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out; }
+    .user-selection-page .title .title-info {
+      border: solid;
+      padding: 1%;
+      margin: 0 auto;
+      display: inline; }
 
 @media (max-width: 768px) {
   .user-selection-page .title {

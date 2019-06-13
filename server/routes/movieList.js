@@ -2,6 +2,11 @@
 const { characters } = require('../FakeData/characters.json');
 const fetch = require('node-fetch');
 
+
+// If there's CRUD for each data (films, species, vehicles, starships),
+// I would separate them into different route file, but since the requestment
+// only relates to get method, so I put them into one file
+
 // const validation = (data) => {
 //     let errors = {};
 
@@ -31,14 +36,12 @@ module.exports = (app) => {
     // });
 
     app.get('/api/data/:url', (req, res) => {
+    // app.get('/api/data/:name/:url', (req, res) => {
         const { url } = req.params;
+        
         fetch(url)
         .then(handleResponse)
-        .then(data => {
-            console.log(data)
-            return res.json(data)
-        })
-        // .then(data => res.json( data ))
+        .then(data => res.json(data))
         .catch(error => {
             if(error.response.status === 404) {
                 console.error("404: Not found")
@@ -51,7 +54,7 @@ module.exports = (app) => {
     
     app.get('/api/characters/:name', (req, res) => {
         const { name } = req.params;
-        console.log(name)
+        // console.log(name)
         let i = 0;
         let url;
         for(i; i < characters.length; i++) {
@@ -72,8 +75,6 @@ module.exports = (app) => {
             res.statusMessage = "Something went wrong, please contact customer service.";
             return res.status(500).end();
         });
-        
-
     });
 
     app.get('/api/characters', (req, res) => {

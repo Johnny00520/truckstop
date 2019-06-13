@@ -1,0 +1,48 @@
+.vehical-page {
+    min-height: 100%;
+
+    .vehical-page-container {
+        background-color: #1A1A1D;
+
+        .info-container {
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+
+            .vehicle-name{
+                text-align: center;
+                display: inline;
+                color: #950740;
+
+
+                h1 {
+                    padding: 3rem 0 1rem 0;
+                    font-size: 32px;
+                    font-family: 'Zilla Slab Highlight', sans-serif;
+                }
+            }
+
+            .time-info {
+                color: #4E4E50;
+                width: 75%;
+                text-align: left;
+                margin: 0 auto;
+            }
+
+            .basic-info {
+                color: #FFF;
+                text-align: left;
+                font-weight: 500;
+                line-height: 1.1;
+                font-size: 16px;
+                font-family: 'Zilla Slab Highlight', sans-serif;
+            }
+
+            h1 {
+                color: #C3073F;
+            }
+        }
+
+
+    }
+}

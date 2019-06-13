@@ -27,7 +27,9 @@ const UserSelection = ({ characters, fetchChar }) => {
 
     return (
         <div className="user-selection-page">
-            <h1 className="title">Characters List</h1>
+            <h1 className="title">
+                <strong><p className="title-info">Characters List</p></strong>
+            </h1>
             { characters.length === 0 ? emptyList : movieList }
         </div>
     )

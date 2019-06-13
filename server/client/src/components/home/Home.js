@@ -3,6 +3,7 @@ import UserSelection from '../userSelection/UserSelection';
 import PropTypes from 'prop-types';
 import { fetchChars } from '../../actions/movies';
 import { connect } from 'react-redux';
+import './Home.css';
 
 class Home extends Component {    
 
@@ -32,14 +33,23 @@ class Home extends Component {
         }
 
         return (
-            <div>
-                { isLoading ? this.loading : 
-                    <UserSelection 
-                        characters={items}
-                        info={info}
-                        fetchChar={this.props.fetchChar}
-                        array={this.props.array}
-                    /> }
+            <div className="home-page">
+                <div className="box-info">
+
+                    <span><h1>Truckshop</h1></span>
+                    <div className="row">
+                        <div className="row-title">
+                            <strong><i>Code Challenge</i></strong>
+                        </div>
+                    </div>
+                    { isLoading ? this.loading : 
+                        <UserSelection 
+                            characters={items}
+                            info={info}
+                            fetchChar={this.props.fetchChar}
+                            array={this.props.array}
+                        /> }
+                </div>
             </div>
         )
     }

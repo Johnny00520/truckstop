@@ -5,8 +5,12 @@ import { fetchChar } from '../../actions/movies';
 import { Link } from 'react-router-dom';
 import profile_img from '../../asset/coming-soon.jpg';
 
-
+import timeConverter from '../timeConver/timeConver';
 import Films from './films/Films';
+import Species from './species/Species';
+import Starships from './starships/Starships';
+import Vehicles from './vehicles/Vehicles';
+import Homeworld from './homeworld/Homeworld';
 import './ActorInfoPage.css';
 
 const directionArray = ['left', 'right'];
@@ -35,19 +39,6 @@ class ActorInfo extends Component {
             directionIndex: 0
         }
     }
-
-    convert = (DateTime) => {
-        
-        let longWeekDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        let srtWeekDay = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
-        const index = srtWeekDay.findIndex(element => element === DateTime[0]);
-        if(index > -1) {
-            DateTime[0] = longWeekDay[index]
-            return DateTime
-        }
-        return DateTime
-    }
     
     componentDidMount() {
         this.setState((prevState) => ({
@@ -56,24 +47,19 @@ class ActorInfo extends Component {
         }))
 
         if(this.props.params.name) {
-            // debugger
             this.props.fetchChar(this.props.params.name)
         }
     }
 
     componentWillReceiveProps(nextProps) {
-        // debugger
-        // console.log(nextProps.info.created)
 
         let createdUTCstring = (new Date(nextProps.info.created)).toUTCString();
         let createdDateTime = new Date(createdUTCstring).toDateString().split(" ");
-
-        let newCreateDateTime = this.convert(createdDateTime).join(" ");
-
+        let newCreateDateTime = timeConverter(createdDateTime).join(" ");
 
         let editedUTCstring = new Date(nextProps.info.edited).toUTCString();
         let editedDateTime = new Date(editedUTCstring).toDateString().split(" ");
-        let newEditedDateTime = this.convert(editedDateTime).join(" ");
+        let newEditedDateTime = timeConverter(editedDateTime).join(" ");
 
         this.setState({
             name: nextProps.info.name,
@@ -93,40 +79,35 @@ class ActorInfo extends Component {
     }
 
     render() {
-        const { films, species, starships, vehicles } = this.props.info
-        // debugger
-        // console.log("films: ", films)
-        // console.log("species: ", species)
-        // console.log("starships: ", starships)
-        // console.log("vehicles: ", vehicles)
+        const { name, films, species, starships, vehicles, homeworld } = this.props.info;
 
         return (
 
             <div className="table-wrapper">
-
                 <div className="info-container">
-
                     <div className="ui raised seqment">
                         <div className={`ui ${colorArray[this.state.colorIndex]} ${directionArray[this.state.directionIndex]} ribbon label`}>
 
                             <div className="info-header">
                                 <h2>{this.state.name}</h2>
                             </div>
-                        </div> 
-                            
+                        </div>
+                        <span><h3 className="detail-title">Details</h3></span>   
                     </div>
-                    <h3 className="detail-title">Detail</h3>
+                    
                     <div className="img-wrapper">
                         <img className="ui small rounded image" src={this.state.pic ? "" : profile_img} alt="Cover"/>
                     </div>
-                    <p>Created: {this.state.created}</p>
-                    <p>Edited: {this.state.edited}</p>
+                    <div className="date-info">
+                        <p>Created: {this.state.created}</p>
+                        <p>Edited: {this.state.edited}</p>
+                    </div>
 
                     <div className="ui divider"></div>
 
                     <div className="ui divided selection list">
 
-                        <div className="block_info">
+                        <div className="block">
                             <div className="inner-block-left">
 
                                 <span className="block-info">
@@ -185,58 +166,114 @@ class ActorInfo extends Component {
                         </div>
                         </div>
 
-                        <div className="ui divider"></div>
-
-                        {/* <div className="ui container"> */}
-
-                            <div className="films-block">
-                                {/* <div className="ui left corner label">
-                                <i className="heart icon"></i> */}
-                                <div className="ui three column stackable cards">
-
-                                    { films && films.length ? films.map((film) => 
-                                        <Films key={film} film={film} fetchMoreUrl={this.props.fetchMoreUrl}
-                                        />) : "" }
-                                </div>
-                                {/* </div> */}
-                            </div>
-                        {/* </div> */}
-
-
-
-
-                        <div className="ui divider"></div>
-                        {/* { species && species.length ? species.map((specie) => <Species key={specie} specie={specie} />) : "" }
-
-                        <div className="ui divider"></div>
-                        { starships && starships.length ? starships.map((starship) => <Starships key={starship} starship={starship} />) : "" }
-
-                        <div className="ui divider"></div>
-                        { vehicles && vehicles.length ? vehicles.map((vehicle) => <Vehicles key={vehicle} vehicle={vehicle} />) : "" } */}
-                            
                         
 
+                        <div className={films && films.length ?
+                            "catagories" : "catagories-hidden" }>
+                            <div className="ui divider"></div>
+                            <div className="caragory-title">
+                                <strong><i>Films:</i></strong>
+                            </div>
+                        </div>
+                        <div className="films-block">
+                            <div className="ui three column stackable cards">
+                                { films && films.length ? films.map((film, idx) => 
+                                    <Films key={film} film={film} 
+                                        name={name}
+                                        idx={idx}
+                                        fetchMoreUrl={this.props.fetchMoreUrl}
+                                    />) : "" }
+                            </div>
+                        </div>
 
 
+                        <div className={species && species.length ? 
+                            "catagories" : "catagories-hidden" }>
+                            <div className="ui divider"></div>
+                            <div className="caragory-title">
+                                <strong><i>Species:</i></strong>
+                            </div>
+                        </div>
+                        <div className="films-block">
+                            <div className="ui three column stackable cards">
+                                {species && species.length > 0 ? species.map((speciy, idx) => 
+                                    <Species 
+                                        key={speciy}
+                                        speciy={speciy}
+                                        name={name}
+                                        idx={idx}
+                                        fetchMoreUrl={this.props.fetchMoreUrl}
+                                    /> ) : ""}
+                            </div>
+                        </div>
+
+                        <div className={starships && starships.length ? 
+                            "catagories" : "catagories-hidden"}>
+                            <div className="ui divider"></div>
+                            <div className="caragory-title">
+                                <strong><i>Starships:</i></strong>
+                            </div>
+                        </div>
+                        <div className="films-block">
+                            <div className="ui three column stackable cards">
+                                { starships && starships.length ? starships.map((starship, idx) => 
+                                    <Starships 
+                                        key={starship} 
+                                        starship={starship}
+                                        name={name}
+                                        idx={idx}
+                                        fetchMoreUrl={this.props.fetchMoreUrl}
+                                    />) : "" }
+                            </div>
+                        </div>
+
+                        
+                            
+                        <div className={vehicles && vehicles.length ? 
+                            "catagories" : "catagories-hidden"}>
+                            <div className="ui divider"></div>
+                            <div className="caragory-title">
+                                <strong><i>Vehicles:</i></strong>
+                            </div>
+                        </div>
+                        <div className="films-block">
+                            <div className="ui three column stackable cards">
+                                { vehicles && vehicles.length ? vehicles.map((vehicle, idx) => 
+                                    <Vehicles 
+                                        key={vehicle} 
+                                        vehicle={vehicle} 
+                                        name={name}
+                                        idx={idx}
+                                        fetchMoreUrl={this.props.fetchMoreUrl}
+                                    />) : "" }
+
+                            </div>
+                        </div>
                     
-
-
-
-
-
+                        <div className="catagories">
+                            <div className="ui divider"></div>
+                            <div className="caragory-title">
+                                <strong><i>Home World:</i></strong>
+                            </div>
+                        </div>
+                        <div className="films-block">
+                            <Homeworld 
+                                homeworld={homeworld}
+                                name={name}
+                                fetchMoreUrl={this.props.fetchMoreUrl}
+                            />
+                        </div>
                 </div>
-
-
-
-
                 
-                <div className="extra content">
-                    <div className="ui one buttons ">
-                        <Link 
-                            to="/"
-                            // to={`${this.props.pathname}`}
-                            className="ui basic button green"
-                        >Home</Link>
+                <div className="btn-formate">
+                    <div className="extra content">
+                        <div className="ui one buttons ">
+                            <Link 
+                                to="/"
+                                // to={`${this.props.pathname}`}
+                                className="ui huge inverted primary button"
+                            >Home</Link>
+                        </div>
                     </div>
                 </div>
 
@@ -248,12 +285,13 @@ class ActorInfo extends Component {
 }
 
 ActorInfo.propType = {
-    ActorInfo: PropTypes.object
+    ActorInfo: PropTypes.object,
+    fetchChar: PropTypes.func
 }
 
 const mapStateToProps = (state, props) => {
     // debugger
-    console.log(props)
+    // console.log("props in actorInfo: ", props)
     if(props.params) {
         // console.log(state.characters)
         // debugger

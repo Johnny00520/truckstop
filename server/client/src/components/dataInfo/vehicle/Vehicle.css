@@ -1,0 +1,30 @@
+.vehical-page {
+  min-height: 100%; }
+  .vehical-page .vehical-page-container {
+    background-color: #1A1A1D; }
+    .vehical-page .vehical-page-container .info-container {
+      width: 80%;
+      text-align: center;
+      margin: 0 auto; }
+      .vehical-page .vehical-page-container .info-container .vehicle-name {
+        text-align: center;
+        display: inline;
+        color: #950740; }
+        .vehical-page .vehical-page-container .info-container .vehicle-name h1 {
+          padding: 3rem 0 1rem 0;
+          font-size: 32px;
+          font-family: 'Zilla Slab Highlight', sans-serif; }
+      .vehical-page .vehical-page-container .info-container .time-info {
+        color: #4E4E50;
+        width: 75%;
+        text-align: left;
+        margin: 0 auto; }
+      .vehical-page .vehical-page-container .info-container .basic-info {
+        color: #FFF;
+        text-align: left;
+        font-weight: 500;
+        line-height: 1.1;
+        font-size: 16px;
+        font-family: 'Zilla Slab Highlight', sans-serif; }
+      .vehical-page .vehical-page-container .info-container h1 {
+        color: #C3073F; }

@@ -1,0 +1,36 @@
+.speciy-page {
+  min-height: 100%; }
+  .speciy-page .speciy-page-container {
+    background-color: #5CDB95; }
+    .speciy-page .speciy-page-container .info-container {
+      width: 80%;
+      text-align: center;
+      margin: 0 auto; }
+      .speciy-page .speciy-page-container .info-container .speciy-name {
+        text-align: center;
+        display: inline; }
+        .speciy-page .speciy-page-container .info-container .speciy-name h1 {
+          padding-top: 5%;
+          font-weight: 500;
+          line-height: 1.1;
+          font-size: 80px;
+          font-family: 'Zilla Slab Highlight', sans-serif;
+          color: #EDF5E1; }
+      .speciy-page .speciy-page-container .info-container .basic-info {
+        text-align: left;
+        color: #FFF;
+        font-weight: 500;
+        line-height: 1.1;
+        font-size: 16px;
+        font-family: 'Zilla Slab Highlight', sans-serif; }
+      .speciy-page .speciy-page-container .info-container .time-info {
+        width: 75%;
+        text-align: left;
+        color: #05386B;
+        margin: 0 auto; }
+      .speciy-page .speciy-page-container .info-container .btn-wrapper {
+        width: 60%;
+        margin: 0 auto;
+        color: #05386B; }
+      .speciy-page .speciy-page-container .info-container .btn-format {
+        padding: 2rem 0; }

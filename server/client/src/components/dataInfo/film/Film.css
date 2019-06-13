@@ -1,0 +1,40 @@
+.film-page {
+  min-height: 100%; }
+  .film-page h5 {
+    font-weight: 500;
+    line-height: 1.1;
+    font-size: 16px;
+    font-family: 'Zilla Slab Highlight', sans-serif; }
+  .film-page .filmInfo-container {
+    width: 95%;
+    margin: 5% auto 0 auto; }
+    .film-page .filmInfo-container h1 {
+      text-align: center;
+      color: #FFF;
+      font-weight: 500;
+      line-height: 1.1;
+      font-size: 36px;
+      font-family: 'Zilla Slab Highlight', sans-serif; }
+  .film-page .data-container {
+    display: inline; }
+    .film-page .data-container span {
+      display: flex;
+      padding: 3px 0; }
+  .film-page .opening_crawl {
+    width: 80%;
+    margin: 5% auto; }
+  .film-page .producer {
+    width: 90%;
+    margin: 5% auto; }
+    .film-page .producer span {
+      padding: 3px 0;
+      display: flex; }
+  .film-page .row {
+    margin: 15px 15px; }
+    .film-page .row .by {
+      width: 80%;
+      margin: 0 auto;
+      font-size: 15px;
+      font-weight: 300;
+      color: #49c5b6;
+      text-align: center; }

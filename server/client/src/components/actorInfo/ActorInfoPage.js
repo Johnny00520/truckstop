@@ -6,7 +6,7 @@ import './ActorInfoPage.css';
 
 const ActorInfoPage = (props) => {
     const { isLoading, error, info, items } = props.characters;
-
+    // debugger
     // console.log("info: ", info)
     const loading = (
         <div className="loading-show">

@@ -16,11 +16,13 @@ const initialState = {
 export default function( state = initialState, action = {}) {
     switch(action.type) {
         case DATA_FETCHED:
-            const urlIndex = state.items
-            console.log(urlIndex)
-            debugger
+            // let test = action
+            // debugger
             return {
-
+                ...state,
+                info: action.data,
+                isLoading: false
+                // url: action.data.url
             }
 
         case CHAR_FETCHED:
@@ -32,17 +34,17 @@ export default function( state = initialState, action = {}) {
                 return {
                     ...state,
                     info: action.data,
-                    // isLoading: false,
-                    // error: null
+                    isLoading: false,
+                    error: null
                 }
             } else {
                 return {
                     ...state,
                     // items: action.characters,
                     info: action.data,
+                    isLoading: false,
                     // items: action.data,
-                    // isLoading: false,
-                    // error: null
+                    error: null
                 }
             }
             

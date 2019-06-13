@@ -1,0 +1,31 @@
+.DataInfo-page {
+  min-height: 100%; }
+  .DataInfo-page h5 {
+    font-weight: 500;
+    line-height: 1.1;
+    font-size: 16px;
+    font-family: 'Zilla Slab Highlight', sans-serif; }
+  .DataInfo-page .DataInfo-container {
+    width: 95%;
+    margin: 5% auto 0 auto; }
+    .DataInfo-page .DataInfo-container h1 {
+      text-align: center;
+      color: #FFF;
+      font-weight: 500;
+      line-height: 1.1;
+      font-size: 36px;
+      font-family: 'Zilla Slab Highlight', sans-serif; }
+  .DataInfo-page .data-container {
+    display: inline; }
+    .DataInfo-page .data-container span {
+      display: flex;
+      padding: 3px 0; }
+  .DataInfo-page .opening_crawl {
+    width: 80%;
+    margin: 5% auto; }
+  .DataInfo-page .producer {
+    width: 90%;
+    margin: 5% auto; }
+    .DataInfo-page .producer span {
+      padding: 3px 0;
+      display: flex; }

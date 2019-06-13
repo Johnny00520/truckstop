@@ -1,0 +1,32 @@
+.homeworld-page {
+  min-height: 100%; }
+  .homeworld-page .homeworld-page-container {
+    background-color: #2F4454; }
+    .homeworld-page .homeworld-page-container .info-container {
+      width: 80%;
+      text-align: center;
+      margin: 0 auto; }
+      .homeworld-page .homeworld-page-container .info-container .homeworl-name {
+        color: #DA7B93;
+        text-align: center;
+        display: inline; }
+        .homeworld-page .homeworld-page-container .info-container .homeworl-name h1 {
+          padding: 3rem 0 1rem 0;
+          font-size: 32px;
+          font-family: 'Zilla Slab Highlight', sans-serif; }
+      .homeworld-page .homeworld-page-container .info-container .time-info {
+        color: #376E6F;
+        width: 75%;
+        text-align: left;
+        margin: 0 auto; }
+      .homeworld-page .homeworld-page-container .info-container .basic-info {
+        color: #FF4136;
+        text-align: left;
+        font-weight: 500;
+        line-height: 1.1;
+        font-size: 16px;
+        font-family: 'Zilla Slab Highlight', sans-serif; }
+      .homeworld-page .homeworld-page-container .info-container h1 {
+        color: #BaB2B5; }
+      .homeworld-page .homeworld-page-container .info-container .btn-format {
+        padding: 5% 0; }

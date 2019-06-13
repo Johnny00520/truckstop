@@ -1,0 +1,57 @@
+.speciy-page {
+    min-height: 100%;
+
+    .speciy-page-container {
+        background-color: #5CDB95;
+
+
+        .info-container {
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+
+            .speciy-name {
+                text-align: center;
+                display: inline;
+                
+    
+                h1 {
+                    padding-top: 5%;
+                    font-weight: 500;
+                    line-height: 1.1;
+                    font-size: 80px;
+                    font-family: 'Zilla Slab Highlight', sans-serif;
+                    color: #EDF5E1;
+                }
+            }
+    
+            .basic-info {
+                text-align: left;
+                color: #FFF;
+                font-weight: 500;
+                line-height: 1.1;
+                font-size: 16px;
+                font-family: 'Zilla Slab Highlight', sans-serif;
+            }
+
+            .time-info {
+                width: 75%;
+                text-align: left;
+                color: #05386B;
+                margin: 0 auto;
+            }
+
+            .btn-wrapper {
+
+                width: 60%;
+                margin: 0 auto;
+                color: #05386B;
+            }
+
+            .btn-format {
+                padding: 2rem 0;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,21 @@
+.home-page {
+  background-color: #1F2833; }
+  .home-page .box-info {
+    padding-top: 5%; }
+    .home-page .box-info span h1 {
+      text-align: center;
+      color: #fcfcfc;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+      font-size: 60px;
+      font-weight: 800; }
+    .home-page .box-info .row {
+      margin-bottom: 15px;
+      text-align: center; }
+      .home-page .box-info .row .row-title {
+        font-size: 20px;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: #49c5b6;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out; }
