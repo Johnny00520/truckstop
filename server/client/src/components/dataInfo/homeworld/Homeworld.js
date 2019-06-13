@@ -92,7 +92,6 @@ export default function Homeworld(props) {
                         <Link 
                             to="/"
                             className="ui huge violet button"
-                            // onClick={() => fetchMoreUrl(character)}
                         >Home</Link>
                     </div>
                 </div>

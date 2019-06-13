@@ -5,7 +5,6 @@ import Films from '../../actorInfo/films/Films';
 import { Link } from 'react-router-dom';
 import './Starship.css';
 
-// export default function Starship({starship, idx, name, fetchChar, fetchMoreUrl}) {
 export default function Starship(props) {
     const { info, isLoading } = props.characters;
     const { name } = props.match.params;

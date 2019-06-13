@@ -8,7 +8,7 @@ import './DataInfoPage.css';
 export default function DataInfo(props) {
 
     const { info, isLoading } = props.characters;
-    // debugger
+
     let createdUTCstring = new Date(info.created).toUTCString();
     let createdDateTime = new Date(createdUTCstring).toDateString().split(" ");
     let newCreateDateTime = timeConverter(createdDateTime).join(" ");

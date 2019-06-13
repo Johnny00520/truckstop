@@ -58,7 +58,7 @@ class ActorInfo extends Component {
         let editedUTCstring = new Date(nextProps.info.edited).toUTCString();
         let editedDateTime = new Date(editedUTCstring).toDateString().split(" ");
         let newEditedDateTime = timeConverter(editedDateTime).join(" ");
-        // debugger
+
         this.setState({
             name: nextProps.info.name,
             birth_year: nextProps.info.birth_year,
@@ -75,14 +75,6 @@ class ActorInfo extends Component {
 
         })
     }
-
-    loading = (
-        <div className="loading-show">
-            <div className="ui active inverted dimmer">
-                <div className="ui text loader">Preparing Files...</div>
-            </div>
-        </div>
-    )
 
     render() {
         const { name, films, species, starships, vehicles, homeworld } = this.props.info;
@@ -246,7 +238,6 @@ class ActorInfo extends Component {
                                         idx={idx}
                                         fetchMoreUrl={this.props.fetchMoreUrl}
                                     />) : "" }
-
                             </div>
                         </div>
                     
@@ -270,7 +261,6 @@ class ActorInfo extends Component {
                         <div className="ui one buttons ">
                             <Link 
                                 to="/"
-                                // to={`${this.props.pathname}`}
                                 className="ui huge inverted primary button"
                             >Home</Link>
                         </div>
@@ -290,7 +280,6 @@ const mapStateToProps = (state, props) => {
     if(props.params) {
         return {
             character: state.characters.items.find(item => item.name === props.params.name),
-            // pathname: props.location.pathname
         };
     }
 

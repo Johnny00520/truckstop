@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 import Films from '../../actorInfo/films/Films';
 import People from '../../actorInfo/people/People';
 import Homeworld from '../../actorInfo/homeworld/Homeworld';
-// import Homeworld from '../../dataInfo/homeworld/Homeworld';
 import './Speciy.css';
 
 export default function Speciy(props) {
-    // debugger
+
     const { info, isLoading } = props.characters;
     const { name } = props.match.params;
 

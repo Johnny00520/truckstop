@@ -37,18 +37,25 @@ module.exports = (app) => {
 
     app.get('/api/data/:url', (req, res) => {
         const { url } = req.params;
-        
-        fetch(url)
-        .then(handleResponse)
-        .then(data => res.json(data))
-        .catch(error => {
-            if(error.response.status === 404) {
-                console.error("404: Not found")
-                return res.status(404).json( error )
-            }
+
+        try {
+            fetch(url)
+                .then(handleResponse)
+                .then(data => res.json( data ))
+                .catch(error => {
+                    console.log("error in backend of /characters: ", error)
+                    if(error.response.status === 404) {
+                        console.error("404: Not found")
+                        return res.status(404).json( error )
+                    }
+                    res.statusMessage = "Something went wrong, please contact customer service.";
+                    return res.status(500).end();
+            });
+        } catch(err) {
+            console.error("Something bad happened in /data: ", err)
             res.statusMessage = "Something went wrong, please contact customer service.";
             return res.status(500).end();
-        });
+        }
     });
     
     app.get('/api/characters/:name', (req, res) => {
@@ -62,18 +69,24 @@ module.exports = (app) => {
             }
         }
 
-        fetch(url)
-        .then(handleResponse)
-        .then(data => res.json( data ))
-        .catch(error => {
-            console.log("error in backend: ", error)
-            if(error.response.status === 404) {
-                console.error("404: Not found")
-                return res.status(404).json( error )
-            }
+        try {
+            fetch(url)
+                .then(handleResponse)
+                .then(data => res.json( data ))
+                .catch(error => {
+                    console.log("error in backend of /characters: ", error)
+                    if(error.response.status === 404) {
+                        console.error("404: Not found")
+                        return res.status(404).json( error )
+                    }
+                    res.statusMessage = "Something went wrong, please contact customer service.";
+                    return res.status(500).end();
+            });
+        } catch(err) {
+            console.error("Something bad happened in /characters: ", err)
             res.statusMessage = "Something went wrong, please contact customer service.";
             return res.status(500).end();
-        });
+        }
     });
 
     app.get('/api/characters', (req, res) => {

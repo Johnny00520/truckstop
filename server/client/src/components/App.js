@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import history from './history/history';
 import Home from './home/Home';
 import ActorInfoPage from './actorInfo/ActorInfoPage';
-
 import DataInfoPage from './dataInfo/DataInfoPage';
 
 // Single one
@@ -25,23 +24,6 @@ import {
 import './App.css';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            prevPath: ""
-        }
-    }
-
-    // componentWillReceiveProps() {
-    //     let currentPath = window.location.pathname;
-       
-    //     if(this.state.prevPath === currentPath) {
-    //         this.setState({
-    //             prevPath: currentPath
-    //         })
-    //     }
-    // }
-
     
     render() {
         return (
@@ -51,16 +33,14 @@ class App extends Component {
                         <Route 
                             exact 
                             path="/" 
-                            render={(props) => 
+                            render={() => 
                                 <Home 
-                                    // {...props} 
                                     characters={this.props.characters}
                                     fetchChar={this.props.fetchChar}
                                 />
                             }
                         />
 
-                        
                         <Route 
                             path="/actor/:name"
                             exact 
@@ -166,26 +146,6 @@ class App extends Component {
                             }
                         />
 
-
-
-
-
-
-                        {/* Species */}
-                        {/* <Route
-                            path="/species/:name"
-                            render={props => 
-                                <Speciy
-                                    {...props}
-                                    characters={this.props.characters}
-                                    fetchMoreUrl={this.props.fetchMoreUrl}
-                                    fetchChar={this.props.fetchChar}
-                                />
-                            } 
-                        /> */}
-
-
-
                     </Switch>
                 </Router>
             </div>
@@ -202,8 +162,6 @@ App.propTypes = {
 }
 
 const mapStateToProps = (state) => {
-//   debugger
-//   console.log("state.characters.info: ", state.characters.info)
   return { 
       info: state.characters.info,
       characters: state.characters,

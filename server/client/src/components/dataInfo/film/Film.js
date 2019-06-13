@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import timeConverter from '../../timeConver/timeConver';
 import Species from '../../actorInfo/species/Species'
-// import Character from '../character/Character';
-// import Planet from '../planet/Planet';
 import Planets from '../../actorInfo/planets/Planets';
 import People from '../../actorInfo/people/People';
 import Vehicles from '../../actorInfo/vehicles/Vehicles';
@@ -74,7 +72,6 @@ export default function Film(props) {
                 <div className="ui four stackable cards">
                     {info.species && info.species.length > 0 ? 
                         info.species.map((speciy, idx) => 
-                        // <Speciy
                         <Species
                             key={speciy}
                             speciy={speciy} 
@@ -91,7 +88,6 @@ export default function Film(props) {
                 <div className="ui four stackable cards">
                     {info.characters && info.characters.length > 0 ? 
                         info.characters.map((character, idx) => 
-                        // <Character
                         <People
                             key={character}
                             person={character} 
@@ -111,7 +107,6 @@ export default function Film(props) {
                         <Planets
                             key={planet}
                             planet={planet} 
-                            // fetchChar={props.fetchChar}
                             fetchMoreUrl={props.fetchMoreUrl}
                             idx={idx}
                             name={name}
@@ -124,7 +119,6 @@ export default function Film(props) {
                 <div className="ui four stackable cards">
                     {info.starships && info.starships.length > 0 ? 
                         info.starships.map((starship, idx) => 
-                        // <Starship 
                         <Starships 
                             key={starship}
                             starship={starship} 
@@ -141,7 +135,6 @@ export default function Film(props) {
                 <div className="ui four stackable cards">
                     {info.vehicles && info.vehicles.length > 0 ? 
                         info.vehicles.map((vehicle, idx) => 
-                        // <Vehicle
                         <Vehicles
                             key={vehicle}
                             vehicle={vehicle} 
